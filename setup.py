@@ -11,5 +11,7 @@ setup(
     license="MIT",
     packages=find_packages(),
     install_requires=["pandas"],
+    package_data={"Suwon_ASOS_data": ["data/*.csv"]},
+    include_package_data=True,
     python_requires=">=3.10",
 )
