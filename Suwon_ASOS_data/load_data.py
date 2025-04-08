@@ -1,9 +1,15 @@
+import os
+import sys
 import pandas as pd
 
 def load_data():
-    train_data = pd.read_csv("data/train_data.csv")
-    valid_data = pd.read_csv("data/valid_data.csv")
-    test_data = pd.read_csv("data/test_data.csv")
+    init_path = sys.modules['Suwon_ASOS_data'].__file__
+    dir_path = init_path.replace('__init__.py', '')
+    
+    train_data = pd.read_csv(os.path.join(dir_path, "data/train_data.csv"))
+    valid_data = pd.read_csv(os.path.join(dir_path, "data/valid_data.csv"))
+    test_data = pd.read_csv(os.path.join(dir_path, "data/test_data.csv"))
+    
     return train_data, valid_data, test_data
 
 if __name__ == "__main__":
